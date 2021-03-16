@@ -13,7 +13,7 @@ jobs:
       - name: Find and Replace
         uses: jacobtomlinson/gha-find-replace@master
         with:
-          find: "%IMAGE%"
+          find: "CHANGEME"
           replace: tempname
           include: deployment.yaml
       - name: Scan yaml
