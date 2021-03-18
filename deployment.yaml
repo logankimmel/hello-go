@@ -13,4 +13,15 @@ spec:
     spec:
       containers:
       - name: myapp
-        image: %IMAGE%
+        image: CHANGEME
+        securityContext:
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "10m"
+

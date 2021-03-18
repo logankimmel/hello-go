@@ -1,0 +1,23 @@
+name: Check Kubernetes YAMLs
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Find and Replace
+        uses: jacobtomlinson/gha-find-replace@master
+        with:
+          find: "CHANGEME"
+          replace: tempname
+          include: deployment.yaml
+      - name: Scan yaml
+        id: kube-lint-scan
+        uses: stackrox/kube-linter-action@v1
+        with:
+          directory: .
