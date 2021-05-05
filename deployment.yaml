@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: hello-go
 spec:
   selector:
     matchLabels:
-      app: myapp
+      app: hello-go
   template:
     metadata:
       labels:
-        app: myapp
+        app: hello-go
     spec:
       containers:
-      - name: myapp
+      - name: hello-go
         image: CHANGEME
         securityContext:
           readOnlyRootFilesystem: true
