@@ -1,0 +1,41 @@
+---
+# Tanzu Build Service Builder Resource
+apiVersion: kpack.io/v1alpha1
+kind: Builder
+metadata:
+  name: hello-go-builder
+  namespace: hello-go
+spec:
+  order:
+  - group:
+    - id: tanzu-buildpacks/go
+  serviceAccount: hello-go-sa
+  stack:
+    kind: ClusterStack
+    name: tiny
+  store:
+    kind: ClusterStore
+    name: default
+  tag: harbor.vmw.binbytes.io/hello-go/hello-go-builder
+---
+# Tanzu Build Service Builder Resource
+apiVersion: kpack.io/v1alpha1
+kind: Image
+metadata:
+  name: hello-go-image
+  namespace: hello-go
+spec:
+  builder:
+    kind: Builder
+    name: hello-go-builder
+  cacheSize: 2G
+  failedBuildHistoryLimit: 10
+  imageTaggingStrategy: BuildNumber
+  serviceAccount: hello-go-sa
+  source:
+    git:
+      revision: demo
+      url: https://github.com/logankimmel/hello-go
+    subPath: src
+  successBuildHistoryLimit: 10
+  tag: harbor.vmw.binbytes.io/hello-go/hello-go-app
