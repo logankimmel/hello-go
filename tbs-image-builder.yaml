@@ -9,7 +9,7 @@ spec:
   order:
   - group:
     - id: tanzu-buildpacks/go
-  serviceAccount: hello-go-sa
+  serviceAccount: hello-go-builder
   stack:
     kind: ClusterStack
     name: tiny
@@ -22,7 +22,7 @@ spec:
 apiVersion: kpack.io/v1alpha1
 kind: Image
 metadata:
-  name: hello-go-image
+  name: hello-go
   namespace: hello-go
 spec:
   builder:
@@ -31,11 +31,11 @@ spec:
   cacheSize: 2G
   failedBuildHistoryLimit: 10
   imageTaggingStrategy: BuildNumber
-  serviceAccount: hello-go-sa
+  serviceAccount: hello-go-builder
   source:
     git:
       revision: demo
       url: https://github.com/logankimmel/hello-go
     subPath: src
   successBuildHistoryLimit: 10
-  tag: harbor.vmw.binbytes.io/hello-go/hello-go-app
+  tag: harbor.vmw.binbytes.io/hello-go/hello-go
