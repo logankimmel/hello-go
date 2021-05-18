@@ -30,7 +30,7 @@ func body() string {
 	<body> 
 	
 		<h1>&#129305; &#127796; &#9973;</h1>
-		<p>Hello Tanzu!</p>
+		<p>Hello Tanzu Demo!</p>
 	
 	</body>
 	</html>`
