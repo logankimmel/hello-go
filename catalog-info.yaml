@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: tanzu-go-web-app
+  description: Tanzu Go Web App
+  tags:
+    - go
+    - web
+    - tanzu
+  annotations:
+    'backstage.io/kubernetes-label-selector': 'app.kubernetes.io/part-of=tanzu-go-web-app'
+  links:
+    - url: http://tanzu-go-web-app.k8s.binbytes.io
+      title: Website Address
+spec:
+  type: service
+  lifecycle: experimental
+  owner: logankimmel

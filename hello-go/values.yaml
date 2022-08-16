@@ -5,10 +5,10 @@
 replicaCount: 1
 
 image:
-  repository: harbor.vmw.binbytes.io/hello-go/hello-go-dockerfile
+  repository: harbor.vmw.binbytes.io/hello-go/hello-go
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: latest
+  tag: b1.20210518.212638
 
 imagePullSecrets: []
 nameOverride: ""

@@ -1,0 +1,14 @@
+# Required but not used
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: xxxx
+  labels:
+    apps.tanzu.vmware.com/workload-type: xxxx
+    app.kubernetes.io/part-of: xxxx
+spec:
+  source:
+    git:
+      url: xxxx
+      ref:
+        branch: xxxx
